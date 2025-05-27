@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model ProductCustomization {
+  id              Int      @id @default(autoincrement())
+  productType     String
+  fontFamily      String
+  fontSize        Int
+  width           Int
+  height          Int
+  barcodeFormat   String
+  barcodeData     String
+  designCode      String
+  revisionCount   Int      @default(0)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
